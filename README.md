@@ -38,7 +38,7 @@
 	public partial class Form1 : Form
 	{
 		TcpClient clientSocket = new TcpClient();
-		NetworkStream stream = default(NetworkStream);             //데이터를 주고받을 때 사용할 스트림
+		NetworkStream stream = default(NetworkStream);           
 
 		public Form1()
 		{
@@ -48,13 +48,13 @@
 		private void button1_Click(object sender, EventArgs e)
 		{
 			clientSocket.Connect("127.0.0.1",9999);
-			stream = clientSocket.GetStream();             // 서버에서 누가 접속이 되면 클라이언트한테 누가 접속이 됐다라고 뿌려주기위한 스트림
+			stream = clientSocket.GetStream();           
 
 			string message = "Connected to Chat Server!\n";
 			button1.Visible = false;
 			Name_TextBox.Enabled = false;
 
-			richTextBox1.AppendText(message);             //쓰레드 안에서 쓸때는 invoke  b, 여기는 쓰레드 안이 아니므로 AppendText
+			richTextBox1.AppendText(message);           
 
 			byte[] buffer = Encoding.Unicode.GetBytes(Name_TextBox.Text + "$");
 			stream.Write(buffer, 0, buffer.Length);
@@ -109,7 +109,7 @@
 
 		private void initSocket()
 		{
-			server = new TcpListener(IPAddress.Any, 9999);     //IPAddress.Any  - 모든 아이피에서 접속이 가능하다    / 특정아이피를 적을수도 있음
+			server = new TcpListener(IPAddress.Any, 9999);     
 			clientSocket = default(TcpClient);
 			server.Start();
 
@@ -119,16 +119,16 @@
 			{
 				try
 				{
-					clientSocket = server.AcceptTcpClient();     // 여기 밑에 코드부터는 서버에 연결이 안되면 실행 X 여기서 멈추고 접속을 기다림 접속되면 밑에 코드 실행
+					clientSocket = server.AcceptTcpClient();    
 
-					NetworkStream stream = clientSocket.GetStream();    //보내기위한 스트림
+					NetworkStream stream = clientSocket.GetStream();    
 					byte[] buffer = new byte[1024];
 					int bytes = stream.Read(buffer, 0, buffer.Length);
-					string userName = Encoding.Unicode.GetString(buffer, 0, bytes);    //클라이언트 이름을 여기에 저장
+					string userName = Encoding.Unicode.GetString(buffer, 0, bytes);   
 					userName = userName.Substring(0, userName.IndexOf('$'));    
 					clientList.Add(clientSocket, userName);
 
-					SendMessageAll(userName + "님이 접속하셨습니다.\n","",false);    // false인 이유 : 그냥 누가 접속했다는 것만 알려주기위해
+					SendMessageAll(userName + "님이 접속하셨습니다.\n","",false);   
 
 					HandleClient handleClient = new HandleClient();
 					handleClient.OnReceived += new HandleClient.MessageDisplayHandler(OnRecieved);
@@ -163,7 +163,7 @@
 			}
 		}
 
-		private void SendMessageAll(string message, string userName, bool flag)   //접속되어 있는 모든 사용자들한테 소켓을 통해서 다시 메세지를 보내줌
+		private void SendMessageAll(string message, string userName, bool flag)  
 		{
 			foreach(var pair in clientList)
 			{
