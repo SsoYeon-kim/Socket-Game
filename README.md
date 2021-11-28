@@ -35,7 +35,7 @@
    
 -----client-----   
 <pre><code>
-public partial class Form1 : Form
+	public partial class Form1 : Form
 	{
 		TcpClient clientSocket = new TcpClient();
 		NetworkStream stream = default(NetworkStream);             //데이터를 주고받을 때 사용할 스트림
@@ -48,13 +48,13 @@ public partial class Form1 : Form
 		private void button1_Click(object sender, EventArgs e)
 		{
 			clientSocket.Connect("127.0.0.1",9999);
-			stream = clientSocket.GetStream();             // 서버에서 누가 접속이 되면 클라이언트한테 누가 접속이 됐다라고 뿌려주기위해
+			stream = clientSocket.GetStream();             // 서버에서 누가 접속이 되면 클라이언트한테 누가 접속이 됐다라고 뿌려주기위한 스트림
 
 			string message = "Connected to Chat Server!\n";
 			button1.Visible = false;
 			Name_TextBox.Enabled = false;
 
-			richTextBox1.AppendText(message);             //쓰레드 안에서 쓸때는 invoke  근데 여기는 쓰레드 안이 아니니까 그냥 AppendText
+			richTextBox1.AppendText(message);             //쓰레드 안에서 쓸때는 invoke  b, 여기는 쓰레드 안이 아니므로 AppendText
 
 			byte[] buffer = Encoding.Unicode.GetBytes(Name_TextBox.Text + "$");
 			stream.Write(buffer, 0, buffer.Length);
@@ -90,7 +90,7 @@ public partial class Form1 : Form
    
 -----server-----   
 <pre><code>
-public partial class Form1 : Form
+	public partial class Form1 : Form
 	{
 		TcpListener server = null;
 		TcpClient clientSocket = null;
@@ -119,14 +119,13 @@ public partial class Form1 : Form
 			{
 				try
 				{
-					clientSocket = server.AcceptTcpClient();     // 여기 밑에 코드부터는 서버에 연결이 안되면 실행이 안돼 여기서 멈추고 접속을 기다리는거야 접속되면 밑에 코드가 실행됩니다
+					clientSocket = server.AcceptTcpClient();     // 여기 밑에 코드부터는 서버에 연결이 안되면 실행 X 여기서 멈추고 접속을 기다림 접속되면 밑에 코드 실행
 
 					NetworkStream stream = clientSocket.GetStream();    //보내기위한 스트림
 					byte[] buffer = new byte[1024];
 					int bytes = stream.Read(buffer, 0, buffer.Length);
 					string userName = Encoding.Unicode.GetString(buffer, 0, bytes);    //클라이언트 이름을 여기에 저장
-					userName = userName.Substring(0, userName.IndexOf('$'));    //편법이야 EOF안쓰고 
-
+					userName = userName.Substring(0, userName.IndexOf('$'));    
 					clientList.Add(clientSocket, userName);
 
 					SendMessageAll(userName + "님이 접속하셨습니다.\n","",false);    // false인 이유 : 그냥 누가 접속했다는 것만 알려주기위해
@@ -164,7 +163,7 @@ public partial class Form1 : Form
 			}
 		}
 
-		private void SendMessageAll(string message, string userName, bool flag)   //접속되어 있는 모든 사용자들한테 소켓을 통해서 다시 메세지를 쏴줌
+		private void SendMessageAll(string message, string userName, bool flag)   //접속되어 있는 모든 사용자들한테 소켓을 통해서 다시 메세지를 보내줌
 		{
 			foreach(var pair in clientList)
 			{
@@ -186,7 +185,7 @@ public partial class Form1 : Form
 			}
 		}
 
-		public void Num_Enter(int num)		//먼저들어온사람 BS 나중에 들어온 사람 GS
+		public void Num_Enter(int num)		
 		{
 			NetworkStream stream = null;
 			byte[] buffer = new byte[1024];
