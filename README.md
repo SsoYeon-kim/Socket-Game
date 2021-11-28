@@ -27,13 +27,11 @@
 
 # 2. 기능   
    
-## 쓰레드   
+## 쓰레드, 파일 입출력, 소켓 프로그래밍   
    
-## 파일 입출력   
-   
-## 소켓 프로그래밍   
-   
------client-----   
+소켓 프로그래밍을 이용한 게임으로 client와 server는 기본적으로 아래와 같은 코드이다.   
+
+----- client -----   
 <pre><code>
 	public partial class Form1 : Form
 	{
@@ -88,7 +86,7 @@
 	}
 </code></pre>
    
------server-----   
+----- server -----   
 <pre><code>
 	public partial class Form1 : Form
 	{
