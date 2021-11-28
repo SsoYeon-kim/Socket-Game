@@ -26,3 +26,11 @@
 <img src="https://user-images.githubusercontent.com/62587484/143778348-a597df3d-313f-45dd-8a74-ea536250cbc3.jpg" width="45%">  
 
 # 2. 기능   
+   
+## 쓰레드   
+   
+## 파일 입출력   
+   
+## 소켓 프로그래밍   
+   
+# 3. 동작 영상   
