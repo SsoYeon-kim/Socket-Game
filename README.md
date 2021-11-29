@@ -276,3 +276,45 @@ Client의 첫 시작 화면이다.
 # 3. 동작 영상   
    
 <img src="https://user-images.githubusercontent.com/62587484/143847879-136e9a93-1f50-443a-8814-785ef5349920.gif" width="45%">   
+   
+두 명의 플레이어 채팅을 하나의 채팅창에 쓰는 것이 아닌 두 개로 나누었다.입력한 텍스트 끝에 남 또는 여를 붙여 구분하였다.   
+   
+--Client--
+<pre><code>
+        private void button_B_send_Click(object sender, EventArgs e)
+        {
+            stream = clientSocket.GetStream();
+            byte[] buffer = Encoding.Unicode.GetBytes(textBox_B.Text.ToString() + "$남");
+            stream.Write(buffer, 0, buffer.Length);
+            stream.Flush();
+
+            textBox_B.Clear();
+        }
+
+        private void button_G_send_Click(object sender, EventArgs e)
+        {
+            stream = clientSocket.GetStream();
+            byte[] buffer = Encoding.Unicode.GetBytes(textBox_G.Text.ToString() + "$여");
+            stream.Write(buffer, 0, buffer.Length);
+            stream.Flush();
+
+            textBox_G.Clear();
+        }
+</code></pre>
+   
+--Server--
+<pre><code>
+
+...
+
+        String[] text = msg.Split('$');
+        msg = text[0];
+        if (text[1].Equals("남"))
+        {
+        	label_B_chat.Invoke(new Action(() => label_B_chat.Text = "( " + msg + " )\n"));
+        }
+        else if (text[1].Equals("여"))
+        {
+                label_G_chat.Invoke(new Action(() => label_G_chat.Text = "( " + msg + " )\n"));
+         }
+</code></pre>
