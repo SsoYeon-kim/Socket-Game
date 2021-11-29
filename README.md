@@ -274,3 +274,5 @@ Client의 첫 시작 화면이다.
 
    
 # 3. 동작 영상   
+   
+<img src="https://user-images.githubusercontent.com/62587484/143847879-136e9a93-1f50-443a-8814-785ef5349920.gif" width="45%">   
