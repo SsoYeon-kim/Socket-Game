@@ -32,6 +32,13 @@
 소켓 프로그래밍을 이용한 게임으로 client와 server는 기본적으로 아래와 같은 코드이다.   
 
 ----- client -----   
+* 소켓을 만든다   
+* 송신/수신 buffer를 만들어 준다
+* ip Address 지정
+* Socket 객체 생성
+* Socket의 연결
+* Socket을 이용한 Data의 전송
+   
 <pre><code>
 	public partial class Form1 : Form
 	{
@@ -87,6 +94,13 @@
 </code></pre>
    
 ----- server -----   
+* 소켓을 만든다
+* IP 주소 설정
+* Server Socket 생성 및 Server Listen모드
+* Server에 접속한 Client 정보
+* Server Accept 절차
+* 수신된 자료의 대한 처리
+   
 <pre><code>
 	public partial class Form1 : Form
 	{
@@ -195,5 +209,7 @@
 		}
 	}
 </code></pre>
+   
+
    
 # 3. 동작 영상   
