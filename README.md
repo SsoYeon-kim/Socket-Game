@@ -24,8 +24,8 @@
 3. 두 플레이어는 여러가지 동작을 취할 수 있으며 선생님 몰래 성공 시 + point, 실패 시 - point를 얻는다.
    
 다음 사진은 클래스 다이어그램이다. 추상화 클래스와 인터페이스 클래스를 포함한다.
-<img src="https://user-images.githubusercontent.com/62587484/143778348-a597df3d-313f-45dd-8a74-ea536250cbc3.jpg" width="45%">   
-
+<img src="https://user-images.githubusercontent.com/62587484/143778348-a597df3d-313f-45dd-8a74-ea536250cbc3.jpg" width="45%"><img src="https://user-images.githubusercontent.com/62587484/143778348-a597df3d-313f-45dd-8a74-ea536250cbc3.jpg" width="45%">      
+   
 # 2. 기능   
    
 ## 쓰레드, 파일 입출력, 소켓 프로그래밍   
