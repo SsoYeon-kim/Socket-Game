@@ -9,7 +9,7 @@
 2-1. 쓰레드   
 2-2. 파일 입출력   
 2-3. 소켓 프로그래밍   
-2-4. 기타
+2-4. 화면 구성 
    
 ## 3. 동작 영상   
    
@@ -211,6 +211,62 @@
 	}
 </code></pre>
    
-## 기타
+## 화면 구성 및 기타   
+   
+Server의 첫 시작 화면이다.   
+<img src="https://user-images.githubusercontent.com/62587484/143843930-e99a14ce-1967-48f2-b25e-96ecb4530dc2.png" width="45%">   
+   
+Client의 첫 시작 화면이다.   
+<img src="https://user-images.githubusercontent.com/62587484/143844228-3eeb9abe-ded0-4e35-bbc3-eea4570f1ec2.png" width="45%">   
+   
+게임 방법을 눌러 point의 정보를 볼 수 있으며 이름을 입력하여 등교하기 버튼을 누른 뒤 화면이다. 10개의 랜덤한 질문이 나오게 되고 답변을 작성 후 지정폴더에 .txt형식으로 저장된다.       
+<img src="https://user-images.githubusercontent.com/62587484/143844895-ab03e009-3d49-46be-b13d-7f701acb9619.png" width="45%">   
+   
+<pre><code>
+
+        string[] q = new string[10];
+
+        public static Random rnd = new Random();
+
+        FileStream fs;
+        StreamWriter sw;
+
+        public static string folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+	
+	...
+	
+	q[0] = "무엇을 타고 등교하나요?";
+        q[1] = "아침 먹었나요?";
+        q[2] = "수업은 어떤가요?";
+        q[3] = "피곤하나요?";
+        q[4] = "잠을 얼마나 잤나요?";
+        q[5] = "과제의 난이도가 어떤가요?";
+	q[6] = "오늘의 기분은?";
+        q[7] = "학식에 대해서 어떻게 생각하나요?";
+        q[8] = "어떤 수업이 가장 재밌나요?";
+        q[9] = "ㅇㅇㅇ 교수님은 어떤가요?";
+
+	...
+	
+         int num = rnd.Next(0, 10);
+
+         if (num < 11)
+         {	label_question.Text = q[num];  }
+	 
+	 
+	private void button_save_Click(object sender, EventArgs e)
+        {
+            fs = new FileStream(folder + @"\설문조사.txt", FileMode.Append, FileAccess.Write);
+            sw = new StreamWriter(fs, System.Text.Encoding.UTF8);
+
+            sw.WriteLine(label_question.Text + "  " + textBox_answer.Text);
+            sw.Close();
+
+           ...
+        }
+          
+</code></pre>
+   
+
    
 # 3. 동작 영상   
