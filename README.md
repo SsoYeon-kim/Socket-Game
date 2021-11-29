@@ -302,6 +302,30 @@ Client의 첫 시작 화면이다.
         }
 </code></pre>
    
+이와 같은 방식으로 각 플레이어의 행동들을 서버에 보내 UI처리를 한다.예시로 아래의 코드와 같다.      
+
+--Client--
+<pre><code>
+        private void button_G_eat_Click(object sender, EventArgs e)     //모범생 과자먹기 누르면 서버에 보내기
+        {
+            stream = clientSocket.GetStream();
+            byte[] buffer = Encoding.Unicode.GetBytes("누군가 과자먹음" + "$");
+            stream.Write(buffer, 0, buffer.Length);
+            stream.Flush();
+        }
+</code></pre>   
+--Server--   
+<pre><code>
+         ...
+	 
+         else if (msg == "누군가 과자먹음")
+         {
+             pictureBox_G.BringToFront();
+             pictureBox_G.Image = pictureBox_G_eat.Image;
+         }
+         
+	 ...
+</code><pre>
 --Server--
 <pre><code>
 
