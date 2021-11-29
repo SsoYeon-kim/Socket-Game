@@ -300,32 +300,8 @@ Client의 첫 시작 화면이다.
 
             textBox_G.Clear();
         }
-</code></pre>
-   
-이와 같은 방식으로 각 플레이어의 행동들을 서버에 보내 UI처리를 한다.예시로 아래의 코드와 같다.      
-
---Client--
-<pre><code>
-        private void button_G_eat_Click(object sender, EventArgs e)     //모범생 과자먹기 누르면 서버에 보내기
-        {
-            stream = clientSocket.GetStream();
-            byte[] buffer = Encoding.Unicode.GetBytes("누군가 과자먹음" + "$");
-            stream.Write(buffer, 0, buffer.Length);
-            stream.Flush();
-        }
 </code></pre>   
---Server--   
-<pre><code>
-         ...
-	 
-         else if (msg == "누군가 과자먹음")
-         {
-             pictureBox_G.BringToFront();
-             pictureBox_G.Image = pictureBox_G_eat.Image;
-         }
-         
-	 ...
-</code><pre>
+
 --Server--
 <pre><code>
 
@@ -343,5 +319,32 @@ Client의 첫 시작 화면이다.
          }
 </code></pre>   
    
+   
+이와 같은 방식으로 각 플레이어의 행동들을 서버에 보내 UI처리를 한다.예시로 아래의 코드와 같다.      
+
+--Client--
+<pre><code>
+        private void button_G_eat_Click(object sender, EventArgs e)     //모범생 과자먹기 누르면 서버에 보내기
+        {
+            stream = clientSocket.GetStream();
+            byte[] buffer = Encoding.Unicode.GetBytes("누군가 과자먹음" + "$");
+            stream.Write(buffer, 0, buffer.Length);
+            stream.Flush();
+        }
+</code></pre>   
+   
+--Server--   
+<pre><code>
+         ...
+	 
+         else if (msg == "누군가 과자먹음")
+         {
+             pictureBox_G.BringToFront();
+             pictureBox_G.Image = pictureBox_G_eat.Image;
+         }
+         
+	 ...
+</code><pre>
+
 다음은 불량학생, 모범생, 선생님의 Game Over(HP 0이하) 화면이다.   
 <img src="https://user-images.githubusercontent.com/62587484/143849982-75e19802-a95a-4bda-ba99-f3e946d6a4b6.gif" width="45%"><img src="https://user-images.githubusercontent.com/62587484/143849997-d9dbd4d6-51c9-4a22-9ecd-be14aba222f5.gif" width="45%"><img src="https://user-images.githubusercontent.com/62587484/143849987-9492300f-dc2f-4c47-ad7e-7d5aeb2688e8.gif" width="45%">   
