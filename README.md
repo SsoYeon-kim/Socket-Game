@@ -317,4 +317,9 @@ Client의 첫 시작 화면이다.
         {
                 label_G_chat.Invoke(new Action(() => label_G_chat.Text = "( " + msg + " )\n"));
          }
-</code></pre>
+</code></pre>   
+   
+다음은 불량학생, 모범생, 선생님의 Game Over 화면이다.   
+<img src="https://user-images.githubusercontent.com/62587484/143849982-75e19802-a95a-4bda-ba99-f3e946d6a4b6.gif" width="45%">   
+<img src="https://user-images.githubusercontent.com/62587484/143849997-d9dbd4d6-51c9-4a22-9ecd-be14aba222f5.gif" width="45%">   
+<img src="https://user-images.githubusercontent.com/62587484/143849987-9492300f-dc2f-4c47-ad7e-7d5aeb2688e8.gif" width="45%">   
