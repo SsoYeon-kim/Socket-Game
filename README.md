@@ -220,7 +220,8 @@ Client의 첫 시작 화면이다.
 <img src="https://user-images.githubusercontent.com/62587484/143844228-3eeb9abe-ded0-4e35-bbc3-eea4570f1ec2.png" width="45%">   
    
 게임 방법을 눌러 point의 정보를 볼 수 있으며 이름을 입력하여 등교하기 버튼을 누른 뒤 화면이다. 10개의 랜덤한 질문이 나오게 되고 답변을 작성 후 지정폴더에 .txt형식으로 저장된다.       
-<img src="https://user-images.githubusercontent.com/62587484/143844895-ab03e009-3d49-46be-b13d-7f701acb9619.png" width="45%">   
+<img src="https://user-images.githubusercontent.com/62587484/143844895-ab03e009-3d49-46be-b13d-7f701acb9619.png" width="45%">
+<img src="https://user-images.githubusercontent.com/62587484/143846462-7bdd2f2d-7642-4a0e-8617-c81520fdcc7a.png" width="45%">
    
 <pre><code>
 
