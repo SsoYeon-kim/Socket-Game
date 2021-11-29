@@ -267,6 +267,9 @@ Client의 첫 시작 화면이다.
           
 </code></pre>
    
+두 명의 플레이어가 접속한 후 게임 플레이 화면이다.   
+<img src="https://user-images.githubusercontent.com/62587484/143845872-b2ec7106-f3dd-4565-9f66-c3c4a3122d61.png" width="45%">   
+   
 
    
 # 3. 동작 영상   
