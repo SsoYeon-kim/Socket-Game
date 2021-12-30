@@ -276,7 +276,7 @@ Client의 첫 시작 화면이다.
 # 3. 동작 영상   
    
 다음은 게임 플레이 영상이다.   
-<img src="https://user-images.githubusercontent.com/62587484/143847879-136e9a93-1f50-443a-8814-785ef5349920.gif" width="70%">   
+<img src="https://user-images.githubusercontent.com/62587484/143847879-136e9a93-1f50-443a-8814-785ef5349920.gif" width="100%">   
    
 두 명의 플레이어 채팅을 하나의 채팅창에 쓰는 것이 아닌 두 개로 나누었다.입력한 텍스트 끝에 남 또는 여를 붙여 구분하였다.   
    
